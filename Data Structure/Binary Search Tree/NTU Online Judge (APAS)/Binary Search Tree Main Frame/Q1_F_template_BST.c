@@ -91,10 +91,46 @@ int main()
 
 //////////////////////////////////////////////////////////////////////////////////
 
+// 큐 초기화 함수
+void initializeQueue(Queue** queuePtr) {
+    *queuePtr = (Queue*)malloc(sizeof(Queue)); // 큐 메모리 할당
+    if (*queuePtr == NULL) {
+        printf("Memory allocation failed\n");
+        exit(EXIT_FAILURE);
+    }
+    (*queuePtr)->head = NULL; // head 초기화
+    (*queuePtr)->tail = NULL; // tail 초기화
+}
+
+BSTNode* createBSTNode(int data) {
+    BSTNode* newNode = (BSTNode*)malloc(sizeof(BSTNode));
+    if (newNode == NULL) {
+        printf("Memory allocation failed\n");
+        exit(EXIT_FAILURE);
+    }
+    newNode->item = data;
+    newNode->left = NULL;
+    newNode->right = NULL;
+    return newNode;
+}
+
 void levelOrderTraversal(BSTNode* root)
 {
-
-    /* add your code here */
+	Queue *q;
+	initializeQueue(&q);
+	BSTNode *ptr = createBSTNode(root->item);
+	enqueue(&(q->head),&(q->tail),root);
+	
+	while(!isEmpty(q->head)){
+		ptr = dequeue(&(q->head),&(q->tail));
+		printf("%d ",ptr->item);
+		if(ptr->left){
+		enqueue(&(q->head),&(q->tail),ptr->left);
+		}
+		if(ptr->right){
+		enqueue(&(q->head),&(q->tail),ptr->right);
+		}
+	}
 }
 
 ///////////////////////////////////////////////////////////////////////////////
