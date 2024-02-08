@@ -92,26 +92,24 @@ void postOrderIterativeS2(BSTNode *root)
 {
 	if (root == NULL)
         return;
-	Stack *stack = malloc(sizeof(Stack));
-	Stack *answer = malloc(sizeof(Stack));
-	stack->top = NULL;
-	answer->top = NULL;
+	Stack stack ;
+	Stack answer ;
+	stack.top = NULL;
+	answer.top = NULL;
 	BSTNode *ptr = root;
-	push(stack,ptr);
-	while(!isEmpty(stack)){
-		ptr = pop(stack);
-		push(answer,ptr);
+	push(&stack,ptr);
+	while(!isEmpty(&stack)){
+		ptr = pop(&stack);
+		push(&answer,ptr);
 		if(ptr->left != NULL)
-			push(stack,ptr->left);
+			push(&stack,ptr->left);
 		if(ptr->right!= NULL)
-			push(stack,ptr->right);
+			push(&stack,ptr->right);
 	}
-	while(!isEmpty(answer)){
-		ptr = pop(answer);
+	while(!isEmpty(&answer)){
+		ptr = pop(&answer);
 		printf("%d ",ptr->item);
 	}
-	free(stack);
-	free(answer);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
