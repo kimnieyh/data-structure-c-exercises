@@ -94,10 +94,58 @@ int main()
 
 //////////////////////////////////////////////////////////////////////////////////
 
+int maxCnt(int i,int j){
+    if (i>j){
+        return i;
+    }else{
+        return j;
+    }
+}
+
+int isNotInList(int num, int *arr){
+    int size = 0;
+    size = sizeof(arr)/sizeof(arr[0]);
+    for(int i = 0; i <size; i ++){
+        if (num == arr[i])
+            return 0;
+    }
+    return 1;
+}
+
 int maxHeight(BTNode *node)
 
 {
-    /* add your code here */
+    if (node == NULL)
+		return -1;
+    Stack stack;
+    Stack height;
+    BTNode *cnt = createBTNode(0); 
+    BTNode *ptr;
+    int max = 0;
+
+    stack.top = NULL;
+    height.top = NULL;
+    push(&stack,node);
+    push(&height,cnt);
+
+    while (stack.top != NULL) {
+		ptr = pop(&stack);
+        cnt = pop(&height);
+        max = maxCnt(max,cnt->item);
+        if (ptr->right!=NULL || ptr->left!=NULL){
+            int temp = cnt->item;
+            cnt = createBTNode(temp+1);
+            if (ptr->right != NULL){
+                push(&stack,ptr->right);
+                push(&height,cnt);
+            }
+            if(ptr->left != NULL){
+                push(&stack,ptr->left);
+                push(&height,cnt);
+            }
+        }
+    }
+    return max;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
