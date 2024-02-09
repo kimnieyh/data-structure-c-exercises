@@ -101,7 +101,28 @@ int main()
 int countOneChildNodes(BTNode *node)
 
 {
-    /* add your code here */
+    if (node == NULL)
+		return 0;
+    BTNode *ptr;
+    Stack stack;
+    int answer = 0;
+    ptr = node;    
+    stack.top = NULL;
+    push(&stack,ptr);
+    while(stack.top){
+        ptr = pop(&stack);
+        if(ptr->left && ptr->right){
+            push(&stack,ptr->left);
+            push(&stack,ptr->right);
+        }else if(ptr->left){
+            push(&stack,ptr->left);
+            answer ++;
+        }else if(ptr->right){
+            push(&stack,ptr->right);
+            answer ++;
+        }
+    }
+    return answer;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////

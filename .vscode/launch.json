@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/h_iin/jungle/data-structure-c-exercises/Data Structure/Binary Search Tree/NTU Online Judge (APAS)/Binary Search Tree Main Frame",
-      "program": "c:/Users/h_iin/jungle/data-structure-c-exercises/Data Structure/Binary Search Tree/NTU Online Judge (APAS)/Binary Search Tree Main Frame/build/Debug/outDebug",
+      "cwd": "c:/Users/h_iin/jungle/data-structure-c-exercises/Data Structure/Binary Tree/NTU Online Judge (APAS)/Binary Tree Main Frame",
+      "program": "c:/Users/h_iin/jungle/data-structure-c-exercises/Data Structure/Binary Tree/NTU Online Judge (APAS)/Binary Tree Main Frame/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
