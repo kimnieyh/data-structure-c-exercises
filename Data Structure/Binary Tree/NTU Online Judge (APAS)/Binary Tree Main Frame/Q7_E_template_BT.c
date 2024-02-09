@@ -99,10 +99,33 @@ int main()
 }
 
 //////////////////////////////////////////////////////////////////////////////////
+int minNum(int i, int j){
+    if(i>j){
+        return j;
+    }
+    return i;
+}
 
 int smallestValue(BTNode *node)
 {
-	/* add your code here */
+    if (node == NULL)
+        return 0;
+    int min;
+    Stack stack;
+    stack.top = NULL;
+    BTNode *ptr;
+    ptr = node;
+    min = ptr->item;
+    push(&stack,ptr);
+    while(stack.top){
+        ptr = pop(&stack);
+        min = minNum(min,ptr->item);
+        if (ptr->left)
+            push(&stack,ptr->left);
+        if (ptr->right)
+            push(&stack,ptr->right);
+    }
+    return min;
 }
 
 //////////////////////////////////////////////////////////////////////////////////
