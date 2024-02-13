@@ -41,6 +41,7 @@ int main()
 	int c, i;
 	LinkedList ll;
 	LinkedList resultFrontList, resultBackList;
+	c = 1;
 
 	//Initialize the linked list as an empty linked list
 	ll.head = NULL;
@@ -102,7 +103,19 @@ int main()
 
 void frontBackSplitLinkedList(LinkedList *ll, LinkedList *resultFrontList, LinkedList *resultBackList)
 {
-	/* add your code here */
+	if(ll == NULL)
+		return;
+	int mid = ((ll->size)/2)+1;
+	printf("%d ",mid);
+	for (int i = 0 ; i < mid ; i ++){
+		ListNode *temp = findNode(ll,i);
+		insertNode(resultFrontList,resultFrontList->size,temp->item);
+	}
+	for (int i = mid; i<ll->size; i++){
+		ListNode *temp = findNode(ll,i);
+		insertNode(resultBackList,resultBackList->size,temp->item);
+	}
+	return;
 }
 
 ///////////////////////////////////////////////////////////////////////////////////
