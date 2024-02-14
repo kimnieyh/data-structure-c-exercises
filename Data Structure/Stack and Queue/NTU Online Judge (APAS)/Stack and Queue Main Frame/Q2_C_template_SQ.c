@@ -123,7 +123,7 @@ void createStackFromLinkedList(LinkedList *ll, Stack *s)
 
 void removeEvenValues(Stack *s)
 {
-	/* add your code here */
+	
 }
 
 //////////////////////////////////////////////////////////////////////////////////
