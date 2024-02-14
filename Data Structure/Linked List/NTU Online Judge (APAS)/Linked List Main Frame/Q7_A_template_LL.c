@@ -92,7 +92,9 @@ void RecursiveReverse(ListNode **ptrHead)
 	if(first == NULL) return;
 	rest = first->next;
 	if(rest == NULL) return;
+	printf("%d, %d \n",first->item,rest->item);
 	RecursiveReverse(&rest);
+	printf("%d, %d \n",first->item,rest->item);
 	first->next->next = first;
 	first->next = NULL;
 	*ptrHead = rest;
